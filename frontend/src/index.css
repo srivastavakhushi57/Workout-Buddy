@@ -1,0 +1,264 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary: #1aac83;
+  --primary-hover: #148b69;
+  --error: #e7195a;
+  --error-bg: #ffefef;
+  --text-dark: #333333;
+  --text-muted: #666666;
+  --bg-page: #f1f1f1;
+  --bg-card: #ffffff;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg-page);
+  margin: 0;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-dark);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header & Navbar */
+header.navbar {
+  background: var(--bg-card);
+  border-bottom: 1px solid #e2e8f0;
+  width: 100%;
+}
+
+header.navbar .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header.navbar h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  letter-spacing: -0.5px;
+}
+
+/* Main Content Area */
+.pages {
+  max-width: 1280px;
+  padding: 30px 24px;
+  margin: 0 auto;
+}
+
+/* Home Layout: 2 Columns on Desktop */
+.home {
+  display: grid;
+  grid-template-columns: 3fr 1.3fr;
+  gap: 50px;
+  align-items: start;
+}
+
+/* Workouts List */
+.workouts {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.loading-state,
+.empty-state {
+  background: var(--bg-card);
+  padding: 30px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.empty-state p {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+/* Workout Card */
+.workout-details {
+  background: var(--bg-card);
+  border-radius: 6px;
+  margin: 0;
+  padding: 22px 24px;
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.workout-details:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.workout-details h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-transform: capitalize;
+}
+
+.workout-details p {
+  margin: 0 0 6px 0;
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.workout-details p strong {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+.workout-details p.created-at {
+  font-size: 0.8rem;
+  color: #8c8c8c;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+/* Delete Button */
+.workout-details .delete-btn {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  background: #f4f4f5;
+  border: 1px solid #e4e4e7;
+  padding: 7px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #52525b;
+  transition: all 0.2s ease;
+}
+
+.workout-details .delete-btn:hover {
+  background: var(--error);
+  border-color: var(--error);
+  color: #ffffff;
+}
+
+.workout-details .trash-icon {
+  width: 17px;
+  height: 17px;
+}
+
+/* Add Workout Form */
+form.create {
+  background: var(--bg-card);
+  padding: 24px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+form.create h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  color: var(--text-dark);
+}
+
+form.create label {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-top: 14px;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+form.create input {
+  padding: 10px 12px;
+  margin-top: 2px;
+  margin-bottom: 6px;
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+form.create input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(26, 172, 131, 0.15);
+}
+
+/* Empty/Invalid Field Highlight */
+form.create input.error {
+  border: 1px solid var(--error) !important;
+  background-color: var(--error-bg);
+}
+
+form.create button {
+  background: var(--primary);
+  border: 0;
+  color: #ffffff;
+  padding: 11px 18px;
+  font-family: inherit;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-top: 16px;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+form.create button:hover:not(:disabled) {
+  background: var(--primary-hover);
+}
+
+form.create button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Error message display */
+div.error {
+  padding: 10px 14px;
+  background: var(--error-bg);
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 4px;
+  margin-top: 16px;
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+/* Responsive: Mobile Stacked Layout (Requirement: Mobile stacked layout, no horizontal scroll) */
+@media (max-width: 860px) {
+  .home {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  /* Form appears first on mobile or stays stacked cleanly */
+  form.create {
+    order: -1;
+  }
+
+  .pages {
+    padding: 20px 16px;
+  }
+}
